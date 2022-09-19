@@ -1,0 +1,87 @@
+#CODE FOR FIND OUT THE STATISTICAL DETAILS
+
+import numpy as np
+import pandas as pd
+import os
+os.chdir("D:/Toyota")
+data = pd.read_csv("D:/Toyota/Toyota.csv")
+data
+
+output:
+
+Unnamed: 0	Price	Age	KM	FuelType	HP	MetColor	Automatic	CC	Doors	Weight
+0	0	13500	23.0	46986	Diesel	90	1.0	0	2000	three	1165
+1	1	13750	23.0	72937	Diesel	90	1.0	0	2000	3	1165
+2	2	13950	24.0	41711	Diesel	90	NaN	0	2000	3	1165
+3	3	14950	26.0	48000	Diesel	90	0.0	0	2000	3	1165
+4	4	13750	30.0	38500	Diesel	90	0.0	0	2000	3	1170
+
+data = pd.read_csv("D:/Toyota/Toyota.csv",index_col=0)
+data
+
+output:
+
+	Price	Age	KM	FuelType	HP	MetColor	Automatic	CC	Doors	Weight
+0	13500	23.0	46986	Diesel	90	1.0	0	2000	three	1165
+1	13750	23.0	72937	Diesel	90	1.0	0	2000	3	1165
+2	13950	24.0	41711	Diesel	90	NaN	0	2000	3	1165
+3	14950	26.0	48000	Diesel	90	0.0	0	2000	3	1165
+4	13750	30.0	38500	Diesel	90	0.0	0	2000	3	1170
+
+data.ndim
+
+output:
+2
+
+data.dtypes
+
+output:
+
+Price          int64
+Age          float64
+KM            object
+FuelType      object
+HP            object
+MetColor     float64
+Automatic      int64
+CC             int64
+
+data.info()
+
+output:
+
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 1436 entries, 0 to 1435
+Data columns (total 10 columns):
+ #   Column     Non-Null Count  Dtype  
+---  ------     --------------  -----  
+ 0   Price      1436 non-null   int64  
+ 1   Age        1336 non-null   float64
+ 2   KM         1436 non-null   object 
+ 3   FuelType   1336 non-null   object 
+ 4   HP         1436 non-null   object 
+ 5   MetColor   1286 non-null   float64
+ 6   Automatic  1436 non-null   int64  
+ 7   CC         1436 non-null   int64  
+ 8   Doors      1436 non-null   object 
+ 9   Weight     1436 non-null   int64  
+dtypes: float64(2), int64(4), object(4)
+memory usage: 123.4+ KB
+
+data.describe()
+
+output:
+
+	Price	Age	MetColor	Automatic	CC	Weight
+count	1436.000000	1336.000000	1286.000000	1436.000000	1436.000000	1436.00000
+mean	10730.824513	55.672156	0.674961	0.055710	1566.827994	1072.45961
+std	3626.964585	18.589804	0.468572	0.229441	187.182436	52.64112
+min	4350.000000	1.000000	0.000000	0.000000	1300.000000	1000.00000
+25%	8450.000000	43.000000	0.000000	0.000000	1400.000000	1040.00000
+50%	9900.000000	60.000000	1.000000	0.000000	1600.000000	1070.00000
+75%	11950.000000	70.000000	1.000000	0.000000	1600.000000	1085.00000
+max	32500.000000	80.000000	1.000000	1.000000	2000.000000	1615.00000
+
+Doors         object
+Weight         int64
+dtype: object
